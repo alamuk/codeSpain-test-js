@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router";
 import RepositoriesListItem from "./RepositoriesListItem";
 
 function renderRepositoriesComponent() {
@@ -11,7 +12,13 @@ function renderRepositoriesComponent() {
         html_url: "https://github.com/facebook/react",
     };
 
-    render(<RepositoriesListItem repository={repository} />);
+    render(
+        <MemoryRouter>
+            <RepositoriesListItem repository={repository} />
+        </MemoryRouter>
+    );
 }
 
-test("shows the link in the github home page", () => {});
+test("shows the link in the github home page", () => {
+    renderRepositoriesComponent();
+});
