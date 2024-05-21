@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import RepositoriesListItem from "./RepositoriesListItem";
 
-function renderRepositoriesComponent() {
+function renderRepoComponent() {
     const repository = {
         full_name: "facebook/react",
         language: "Javascript",
@@ -22,7 +22,7 @@ function renderRepositoriesComponent() {
 }
 
 test("shows the link in the github home page", async () => {
-    const { repository } = renderRepositoriesComponent();
+    const { repository } = renderRepoComponent();
 
     await screen.findByRole("img", { name: "Javascript" });
 
